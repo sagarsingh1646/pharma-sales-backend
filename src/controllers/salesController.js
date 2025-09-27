@@ -4,12 +4,13 @@ const Sale = require('../models/saleModel');
 exports.createSale = async (req, res, next) => {
 
   try {
-    const { productName, quantity, dateOfSale, customerName, customerEmail } = req.body;
+    const { productName, quantity, dateOfSale, customerName, pricePerUnit, customerEmail } = req.body;
 
     const sale = await Sale.create({
       productName,
       quantity,
       dateOfSale,
+      pricePerUnit,
       customerName,
       customerEmail,
       createdBy: req.user.id,
@@ -31,7 +32,7 @@ exports.getSales = async (req, res, next) => {
       sales = await Sale.find().populate('createdBy', 'firstName lastName email');
     } else {
       // Sales rep sees only their own sales
-      sales = await Sale.find({ createdBy: req.user.id });
+      sales = await Sale.find({ createdBy: req.user.id }).populate('createdBy', 'firstName lastName email');
     }
 
     res.status(200).json({ success: true, sales });

@@ -14,6 +14,11 @@ const SaleSchema = new Schema(
       required: true,
       min: [1, 'Quantity must be at least 1'],
     },
+    pricePerUnit: {
+      type: Number,
+      required: true,
+      min: [0, 'Price per unit must be at least 0'],
+    },
     dateOfSale: {
       type: Date,
       required: true,
@@ -24,7 +29,7 @@ const SaleSchema = new Schema(
       required: true,
       trim: true,
     },
-    customerContact: {
+    customerEmail: {
       type: String,
       trim: true,
     },
