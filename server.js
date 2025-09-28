@@ -8,9 +8,9 @@ const passport = require('./src/config/passport');
 dotenv.config();
 const app = express();
 app.use(cors({
-    origin: "http://localhost:5173", // frontend URL
+    origin: process.env.FRONTEND_URL || "http://localhost:5173",
     credentials: true, 
-   }              // allow cookies
+   }
 
 ));
 app.use(express.json());
