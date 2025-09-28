@@ -1,6 +1,6 @@
 # Pharmaceutical Sales Tracking System - Backend
 
-Backend API for the **Pharmaceutical Sales Tracking System**, built with **Node.js, Express, and MongoDB**. Provides authentication, user management, and sales tracking functionality.
+Backend API for the **Pharmaceutical Sales Tracking System**, built with **Node.js, Express, and MongoDB**. Provides authentication, user management, and sales tracking and generate report functionality.
 
 ---
 
@@ -86,6 +86,10 @@ Authorization: Bearer <token_received_from_login>
 ### 4. Delete Sale
 **Endpoint:** `DELETE /sales/{id}`
 - Deletes the sale with the specified ID.
+
+### 4. Generate Report
+**Endpoint:** `GET /sales/report`
+- Generate reports (Only for manager).
 
 ---
 
